@@ -209,7 +209,7 @@ export const useCloudflareStore = create<CloudflareState>((set, get) => ({
   },
 
   toggleUnderAttackMode: async () => {
-    const current = get().securitySettings?.attack_mode ?? false;
+    const current = get().securitySettings?.under_attack_mode ?? false;
     const nextLevel = current ? "medium" : "under_attack";
     await get().setSecurityLevel(nextLevel);
   },

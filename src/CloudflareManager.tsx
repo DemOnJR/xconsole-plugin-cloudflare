@@ -16,7 +16,6 @@ export function CloudflareManager({ onClose }: { onClose?: () => void }) {
     tunnelConfig,
     tunnelToken,
     dnsRecords,
-    securitySettings,
     error,
     history,
     loadAccounts,
@@ -28,14 +27,12 @@ export function CloudflareManager({ onClose }: { onClose?: () => void }) {
     saveTunnelConfig,
     upsertDnsRecord,
     deleteDnsRecord,
-    setSecurityLevel,
     toggleUnderAttackMode,
     loadHistory,
     revertAction,
   } = useCloudflareStore();
 
   const [activeTab, setActiveTab] = useState<"tunnels" | "dns" | "security" | "history">("tunnels");
-  const [historyFilter, setHistoryFilter] = useState<"all" | "agent" | "user">("all");
   const [revertingId, setRevertingId] = useState<string | null>(null);
   const [revertToast, setRevertToast] = useState<string | null>(null);
   const [creatingTunnel, setCreatingTunnel] = useState(false);
